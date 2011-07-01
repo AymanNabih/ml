@@ -38,9 +38,9 @@ def classifier_hit_rate(test_data, test_lbls, classifier):
     """Evaluates the performance of a single feature space classifier (overall
     hit rate)
 
-    It receives the training data and labels, the test data and labels, and a
-    single feature space classifier. This classifier is a function g that can be
-    used to classify patterns, e.g, g(test_data[0]).
+    It receives the test data and labels, and a single feature space classifier.
+    This classifier is a function g that can be used to classify patterns, e.g,
+    g(test_data[0]).
     """
 
     test_lbls = np.asarray(test_lbls).ravel()
