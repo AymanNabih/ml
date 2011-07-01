@@ -72,10 +72,11 @@ def kde_classifier_gen(data, labels, h, kernel=normal_kernel, priors=None):
 
     This function receives the training data, the associated labels, the size of
     the window, the interpolation kernel (normal by default) and a list of
-    priors estimatives (it's calculated from the data by default). The outcome
-    is another function that can be used to classify non-seen data, the Bayesian
-    discriminants (non-normalized posteriors) for each class and the priors
-    estimatives.
+    priors estimatives (it's calculated from the data by default).
+    
+    The outcome is another function that can be used to classify non-seen data,
+    the Bayesian discriminants (non-normalized posteriors) for each class and
+    the priors estimatives.
 
     PS: The Bayesian discriminant for the c class is a function
     g_c(x)=p(x|c)*p(c). So, it's possible to get the posterior by
