@@ -8,11 +8,10 @@ def partitioning_around_medoids(k, distances):
 
     This is a classical realization of the k-medoids algorithm. It's an
     iterative technique that forms k clusters from the data by minimizing the
-    sum of the clusters within-distances. Each cluster is represented by a data
-    instance, called medoid. The remaining data instances are associated to the
-    clusters with the closest medoids. The general loop selects medoids such
-    that the cost criterion decreases incrementally. This iteration finishes
-    when the medoids converges.
+    sum of the clusters within-distances. In each iteration, data instances
+    called medoids are chosen to represent the clusters. The remaining data
+    instances are associated to the clusters with the closest medoids. This
+    process is repeated until the medoids converge.
 
     For a detailed description of this algorithm, see [1], [2].
 
