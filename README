@@ -8,7 +8,12 @@ Of course, use it without any warranty... at your own risk. I can't guarantee
 complete documentation and stability. I make it stable and documented just
 enough for my own purposes.
 
-That's it =)
+Also, any contribution (new algorithms and, particularly, tests) are welcome.
+Send me a pull request or a patch and i'll be very happy to review it.
+
+That's it. =)
 
 Rafael Barreto
+
 rafaelbarreto87@gmail.com
+rafaelbarreto.wordpress.com
