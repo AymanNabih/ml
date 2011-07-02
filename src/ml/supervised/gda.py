@@ -4,11 +4,11 @@ import numpy as np
 
 from functools import partial
 
-from ..statistics.distributions import normal_pdf
+from ml.statistics.distributions import normal_pdf
 
 
 def gda_classifier_gen(data, labels, use_pooled_sigma=False, priors=None):
-    """Generator of Bayesian classifier based on Gaussian Discriminant Analysis
+    """Generator of Bayesian classifier based on Gaussian Discriminant Analysis.
 
     This algorithm generates a Bayesian classifier assuming the data for each
     class are distributed according to multivariate Gaussians. Given this
@@ -20,25 +20,48 @@ def gda_classifier_gen(data, labels, use_pooled_sigma=False, priors=None):
     assumption is self-evident given the Central Limit Theorem.
 
     For more information about Gaussian Discriminant Analysis and Bayesian
-    classification, see [1], [2], [3].
+    classification, see [Duda2000]_, [CS229]_.
 
-    [1] R. O. Duda, P. E. Hart, D. G. Stork; Pattern Classification; Second
-        Edition; Wiley-Interscience; 2000
-    [2] http://www.stanford.edu/class/cs229/notes/cs229-notes2.pdf
-    [3] http://en.wikipedia.org/wiki/Bayesian_inference
+    Parameters
+    ----------
+    data : list or 2D-array
+        The training data. This must be a MxN matrix formed by M observations of
+        N features.
+    labels : flat list or 1D-array
+        The training labels. This must be an array the same size as the training
+        data rows.
+    use_pooled_sigma : boolean, optional
+        Flag indicating if the multivariate Gaussians should use a pooled sigma.
+        It's False by default.
+    priors : flat list or 1D-array, optional
+        Priors estimatives for each class. This must be an array the same size
+        as unique(labels) and sum to one. It's calculated from the data by
+        default.
 
-    This function receives the training data, the associated labels, a flag
-    indicating if the multivariate Gaussians should use a pooled sigma (false by
-    default) and a list of priors estimatives (it's calculated from the data by
-    default).
+    Returns
+    -------
+    classifier : function
+        The classifier function. This is a function f : V -> L where V is the
+        feature space and L is the class space.
+    discriminants : flat list of functions
+        A list of the Bayesian discriminants (non-normalized posteriors) for
+        each class. The Bayesian discriminant for the c class is a function
+        g_c(x)=p(x|c)*p(c). So, it's possible to get the posterior by
+        p(c|x)=g_c(x)/(sum_c(g_c(x)).
+    priors : flat list or 1D-array
+        The parameter 'priors' if informed or a list of priors estimated from
+        the data.
 
-    The outcome is another function that can be used to classify non-seen data,
-    the Bayesian discriminants (non-normalized posteriors) for each class and
-    the priors estimatives.
+    See Also
+    --------
+    ml.supervised.kde.kde_classifier_gen
+        Similar function using Kernel Density Estimation.
 
-    PS: The Bayesian discriminant for the c class is a function
-    g_c(x)=p(x|c)*p(c). So, it's possible to get the posterior by
-    p(c|x)=g_c(x)/(sum_c(g_c(x)).
+    References
+    ----------
+    .. [Duda2000] R. O. Duda, P. E. Hart, D. G. Stork; Pattern Classification;
+                  Second Edition; Wiley-Interscience; 2000
+    .. [CS229] http://www.stanford.edu/class/cs229/notes/cs229-notes2.pdf
     """
 
     data = np.asarray(data)
