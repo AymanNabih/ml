@@ -41,7 +41,7 @@ def kde(x, data, h, kernel=normal_kernel):
         The reference samples. This must be a MxN matrix formed by M
         observations of N features.
     h : float
-        The size of the window (bandwidth).
+        The size of the window (bandwidth). Must be > 0.
     kernel : function, optional
         The interpolation kernel. It's normal by default.
 
@@ -88,7 +88,7 @@ def kde_classifier_gen(data, labels, h, kernel=normal_kernel, priors=None):
         The training labels. This must be an array the same size as the training
         data rows.
     h : float
-        The size of the window (bandwidth).
+        The size of the window (bandwidth). Must be > 0.
     kernel : function, optional
         The interpolation kernel. It's normal by default.
     priors : flat list or 1D-array, optional
