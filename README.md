@@ -18,8 +18,9 @@ That's it =).
 
 Rafael Menezes Barreto
 
-    rafaelbarreto87@gmail.com
-    http://rafaelbarreto.wordpress.com
+rafaelbarreto87@gmail.com
+
+http://rafaelbarreto.wordpress.com
 
 Features
 --------
