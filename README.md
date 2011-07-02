@@ -16,11 +16,9 @@ Send me a pull request or a patch and i'll be very happy to review it.
 
 That's it =).
 
-.. line block::
+Rafael Menezes BarretoGitHub Markup (rafaelbarreto87@gmail.com)
 
-    Rafael Menezes BarretoGitHub Markup
-    rafaelbarreto87@gmail.com
-    http://rafaelbarreto.wordpress.com
+http://rafaelbarreto.wordpress.com
 
 Features
 --------
