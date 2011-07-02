@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from . import ensembles
-from .evaluation import *
-from .gda import *
-from .kde import *
+from ml.supervised import ensembles
+from ml.supervised.evaluation import *
+from ml.supervised.gda import *
+from ml.supervised.kde import *
 
 
 __all__ = filter(lambda s: not s.startswith('_'), dir())

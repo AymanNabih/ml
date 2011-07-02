@@ -6,7 +6,7 @@ import numpy as np
 
 from functools import partial
 
-from ...statistics import mode
+from ml.statistics.statistics import mode
 
 
 def gen_product_rule(priors, classifiers_discriminants, fun, same_features_space):
