@@ -46,3 +46,11 @@ Currently, the following features are implemented:
 
     * Efficient mode and frequency count functions
     * Multivariate normal PDFs
+
+Dependencies
+------------
+
+This project depends upon the following libraries:
+
+- NumPy >= 1.6.0 (http://numpy.scipy.org/)
+- SciPy >= 0.9.0 (http://www.scipy.org/)
