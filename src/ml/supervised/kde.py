@@ -93,21 +93,21 @@ def kde_classifier_gen(data, labels, h, kernel=normal_kernel, priors=None):
         The interpolation kernel. It's normal by default.
     priors : 1D-array, optional
         Priors estimatives for each class. This must be an array the same size
-        as unique(labels) and sum to one. It's calculated from the data by
-        default.
+        as unique(labels) and sum to one (tolerance of 1e-5). It's calculated
+        from the data by default.
 
     Returns
     -------
     classifier : function
         The classifier function. This is a function f : V -> L where V is the
         feature space and L is the class space.
-    discriminants : flat list of functions
+    discriminants : 1D-array of functions
         A list of the Bayesian discriminants (non-normalized posteriors) for
         each class. The Bayesian discriminant for the c class is a function
         g_c(x)=p(x|c)*p(c). So, it's possible to get the posterior by
         p(c|x)=g_c(x)/(sum_c(g_c(x)).
-    priors : flat list or 1D-array
-        The parameter 'priors' if informed or a list of priors estimated from
+    priors : 1D-array
+        The echo of the priors if informed or a list of estimated values from
         the data.
 
     See Also
@@ -125,31 +125,38 @@ def kde_classifier_gen(data, labels, h, kernel=normal_kernel, priors=None):
 
     assert h > 0, "The window size must be greater than 0."
 
-    data = np.asarray(data)
+    data = np.copy(data)
 
-    assert data.ndim == 2, "The training data must be a MxN matrix formed by " \
-        "M observations of N features."
+    assert data.ndim == 2, "The data must be a MxN matrix formed by M " \
+        "observations of N features."
 
-    labels = np.asarray(labels).ravel()
+    n, d = data.shape
+    labels = np.copy(labels).ravel()
 
-    assert data.shape[0] == len(labels), "There's no correspondance between " \
+    assert n == len(labels), "There's no correspondance between " \
         "the data and the labels."
 
     classes = np.unique(labels)
-
     if priors is None:
         priors = [float(np.count_nonzero(labels==c))/len(labels) \
             for c in classes]
     else:
+        priors = np.copy(priors)
         assert len(priors) == len(classes), "There's no correspondance " \
             "between the specified priors and the detected classes."
 
-    assert abs(sum(priors) - 1.0) < np.finfo(float).eps, "The priors must " \
-        "sum to one."
+    assert abs(sum(priors) - 1.0) < 1e-5, "The priors must sum to one."
 
     discriminant = lambda i, x: kde(x, data[labels==classes[i]], h, kernel) * \
         priors[i]
     discriminants = [partial(discriminant, i) for i in xrange(len(classes))]
-    classifier = lambda x: classes[np.argmax([d(x) for d in discriminants])]
+
+    def classifier(x):
+        x = np.asarray(x).ravel()
+
+        assert d == len(x), "Incorrect dimensionality. The input data must " \
+            "be %d-dimensional." % d
+
+        return classes[np.argmax([g(x) for g in discriminants])]
 
     return classifier, discriminants, priors
