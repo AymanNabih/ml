@@ -1,5 +1,5 @@
 ml - Machine Learning in Python
-===============================
+-------------------------------
 
 This is a personal project whose goal is to concentrate all my Python code
 about Machine Learning.
@@ -16,9 +16,9 @@ Send me a pull request or a patch and i'll be very happy to review it.
 
 That's it =).
 
-Rafael Menezes Barreto (rafaelbarreto87@gmail.com)
-
-http://rafaelbarreto.wordpress.com
+| Rafael Menezes Barreto
+| rafaelbarreto87@gmail.com
+| http://rafaelbarreto.wordpress.com
 
 Features
 --------
