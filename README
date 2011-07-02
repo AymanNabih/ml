@@ -19,6 +19,8 @@ Currently, the following features are implemented:
     * Multivariate Kernel Density Estimation
     * Bayesian classifier based on Kernel Density Estimation
     * kNN and Weighted-kNN classifiers
+    * Rules for combination of classifiers (sum, product, median,
+      min, max, majority) with single/multiple feature spaces
     * Stratified k-Fold cross validation
     * Some convenient functions to help evaluation
 
