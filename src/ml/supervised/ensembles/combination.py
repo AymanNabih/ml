@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
-# TODO reimplement all this stuff in an elegant way =S
-
 import numpy as np
 
 from functools import partial
 
 from ml.statistics.statistics import mode
+
+
+# TODO reimplement all this stuff in an elegant way =S
 
 
 def gen_product_rule(priors, classifiers_discriminants, fun, same_features_space):
