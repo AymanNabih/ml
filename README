@@ -1,3 +1,6 @@
+ml - Machine Learning in Python
+===============================
+
 This is a personal project whose goal is to concentrate all my Python code
 about Machine Learning.
 
@@ -10,6 +13,15 @@ enough for my own purposes.
 
 Also, any contribution (new algorithms and, particularly, tests) are welcome.
 Send me a pull request or a patch and i'll be very happy to review it.
+
+That's it =).
+
+Rafael Menezes Barreto
+rafaelbarreto87@gmail.com
+http://rafaelbarreto.wordpress.com
+
+Features
+--------
 
 Currently, the following features are implemented:
 
@@ -34,10 +46,3 @@ Currently, the following features are implemented:
 
     * Efficient mode and frequency count functions
     * Multivariate normal PDFs
-
-That's it. =)
-
-Rafael Barreto
-
-rafaelbarreto87@gmail.com
-rafaelbarreto.wordpress.com
