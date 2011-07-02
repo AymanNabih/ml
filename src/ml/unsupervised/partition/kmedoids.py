@@ -4,7 +4,7 @@ import numpy as np
 
 
 def partitioning_around_medoids(k, distances):
-    """Partitioning Around Medoids (PAM) algorithm for hard clustering
+    """Partitioning Around Medoids (PAM) algorithm for hard clustering.
 
     This is a classical realization of the k-medoids algorithm. It's an
     iterative technique that forms k clusters from the data by minimizing the
@@ -13,17 +13,31 @@ def partitioning_around_medoids(k, distances):
     instances are associated to the clusters with the closest medoids. This
     process is repeated until the medoids converge.
 
-    For a detailed description of this algorithm, see [1], [2].
+    For a detailed description of this algorithm, see [Theodoridis2009]_,
+    [Wikipedia]_.
 
-    [1] S. Theodoridis, K. Koutroumbas; Pattern Recognition; Fourth Edition;
-        Academic Press; 2009
-    [2] http://en.wikipedia.org/wiki/K-medoids
+    Parameters
+    ----------
+    k : integer
+        The number of clusters. Must be > 0 and <= # data instances.
+    distances : 2D-array
+        Pairwise distance matrix computed from the data to be clustered. Of
+        course, by definition, it must be a symmetric matrix.
 
-    This function receives the number of clusters and a pairwise distance matrix
-    computed from the data to be clustered.
+    Returns
+    -------
+    labels : 1D-array
+        Labels for the data.
+    medoids_idx : 1D-array
+        The indices of the clusters centers.
+    cost : 1D-array
+        The cost associated with each cluster.
 
-    The outputs are the labels for the data, the medoids indices and cost
-    estimatives for each cluster.
+    References
+    ----------
+    .. [Theodoridis2009] S. Theodoridis, K. Koutroumbas; Pattern Recognition;
+                         Fourth Edition; Academic Press; 2009
+    .. [Wikipedia] http://en.wikipedia.org/wiki/K-medoids
     """
 
     assert k > 0, "There must be at least one cluster."

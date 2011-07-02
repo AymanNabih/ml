@@ -17,9 +17,9 @@ def normal_pdf(mu, sigma):
 
     Parameters
     ----------
-    mu : flat list or 1D-array
+    mu : 1D-array
         Mean of the multivariate normal.
-    sigma : list or 2D-array
+    sigma : 2D-array
         Covariance of the multivariate normal.
 
     Returns

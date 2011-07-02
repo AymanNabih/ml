@@ -14,7 +14,7 @@ def stratified_k_fold(labels, k):
 
     Parameters
     ----------
-    labels : flat list or 1D-array
+    labels : 1D-array
         The data labels.
     k : integer
         The number of folds. It must be > 1 and <= the cardinality of the less
@@ -61,10 +61,10 @@ def classifier_hit_rate(test_data, test_lbls, classifier):
 
     Parameters
     ----------
-    test_data : list or 2D-array
+    test_data : 2D-array
         The test data. This must be a MxN matrix formed by M observations of N
         features.
-    test_lbls : flat list or 1D-array
+    test_lbls : 1D-array
         The test labels. This must be an array the same size as the test data
         rows.
     classifier : function

@@ -34,10 +34,10 @@ def kde(x, data, h, kernel=normal_kernel):
 
     Parameters
     ----------
-    x : flat list or 1D-array
+    x : 1D-array
         The test sample. This must be a vector with the same dimensionality of
         the reference samples.
-    data : list or 2D-array
+    data : 2D-array
         The reference samples. This must be a MxN matrix formed by M
         observations of N features.
     h : float
@@ -81,17 +81,17 @@ def kde_classifier_gen(data, labels, h, kernel=normal_kernel, priors=None):
 
     Parameters
     ----------
-    data : list or 2D-array
+    data : 2D-array
         The training data. This must be a MxN matrix formed by M observations of
         N features.
-    labels : flat list or 1D-array
+    labels : 1D-array
         The training labels. This must be an array the same size as the training
         data rows.
     h : float
         The size of the window (bandwidth). Must be > 0.
     kernel : function, optional
         The interpolation kernel. It's normal by default.
-    priors : flat list or 1D-array, optional
+    priors : 1D-array, optional
         Priors estimatives for each class. This must be an array the same size
         as unique(labels) and sum to one. It's calculated from the data by
         default.

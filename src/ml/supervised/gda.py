@@ -24,10 +24,10 @@ def gda_classifier_gen(data, labels, use_pooled_sigma=False, priors=None):
 
     Parameters
     ----------
-    data : list or 2D-array
+    data : 2D-array
         The training data. This must be a MxN matrix formed by M observations of
         N features.
-    labels : flat list or 1D-array
+    labels : 1D-array
         The training labels. This must be an array the same size as the training
         data rows.
     use_pooled_sigma : boolean, optional
@@ -43,12 +43,12 @@ def gda_classifier_gen(data, labels, use_pooled_sigma=False, priors=None):
     classifier : function
         The classifier function. This is a function f : V -> L where V is the
         feature space and L is the class space.
-    discriminants : flat list of functions
+    discriminants : 1D-array of functions
         A list of the Bayesian discriminants (non-normalized posteriors) for
         each class. The Bayesian discriminant for the c class is a function
         g_c(x)=p(x|c)*p(c). So, it's possible to get the posterior by
         p(c|x)=g_c(x)/(sum_c(g_c(x)).
-    priors : flat list or 1D-array
+    priors : 1D-array
         The parameter 'priors' if informed or a list of priors estimated from
         the data.
 

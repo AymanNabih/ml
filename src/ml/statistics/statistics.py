@@ -6,9 +6,9 @@ def bincount(data, weights=None):
 
     Parameters
     ----------
-    data : flat list or 1D-array
+    data : 1D-array
         The data.
-    weights : flat list or 1D-array, optional
+    weights : 1D-array, optional
         Weights for the data. It must be an array the same size as the data.
         weights[i] measures the contribution of data[i]. When not specified,
         it's assumed that weights[i] == 1 for all i.
@@ -47,16 +47,16 @@ def mode(data, weights=None):
 
     Parameters
     ----------
-    data : flat list or 1D-array
+    data : 1D-array
         The data.
-    weights : flat list or 1D-array, optional
+    weights : 1D-array, optional
         Weights for the data. It must be an array the same size as the data.
         weights[i] measures the contribution of data[i]. When not specified,
         it's assumed that weights[i] == 1 for all i.
 
     Returns
     -------
-    mode_list : flat list
+    mode_list : 1D-array
         A list with the modal values.
     max_count : numeric
         The weighted frequency associated with the modal values.
