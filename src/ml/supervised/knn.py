@@ -7,19 +7,24 @@ from ml.statistics.statistics import mode
 from scipy.spatial.distance import cdist
 
 
+# TODO write documentation for knn_classifier_gen and
+#      knn_classifier_gen.classifier
+
+
 def knn_classifier_gen(data, labels, k=1, weighted=False,
                        dist_metric='euclidean', thresh=np.inf, **dist_kwargs):
+    assert k > 0, "'k' must be greater than 0."
+
     data = np.copy(data)
 
     assert data.ndim == 2, "The data must be a MxN matrix formed by M " \
         "observations of N features."
 
+    n, d = data.shape
     labels = np.copy(labels).ravel()
 
-    assert data.shape[0] == len(labels), "There's no correspondance between " \
+    assert n == len(labels), "There's no correspondance between " \
         "the data and the labels."
-
-    d = data.shape[1]
 
     def classifier(x):
         x = np.asarray(x).ravel()
