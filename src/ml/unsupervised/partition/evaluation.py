@@ -5,8 +5,11 @@ import numpy as np
 from scipy.spatial.distance import cdist
 
 
+# TODO organize documentation using reST
+
+
 def map_clusters_to_classes_lbls(clusters_lbls, classes_data, classes_lbls):
-    """Map clusters to classes labels
+    """Map clusters to classes labels.
 
     This function uses a very simple heuristic to map clusters to classes
     labels. Before explaining the mechanics of it, it's important to understand
@@ -22,15 +25,15 @@ def map_clusters_to_classes_lbls(clusters_lbls, classes_data, classes_lbls):
     Despite clustering being a typical unsupervised procedure, sometimes is
     desirable to apply it to supervised data in order to evaluate the
     performance of a specific algorithm. However, because the clusters labels
-    are not stable, it's not possible to compare them to class labels directly.
-    Thus, it's necessary to compute a mapping between clusters and classes
-    labels before comparison.
+    are not stable, it's not possible to compare them to classes labels
+    directly. Thus, it's necessary to compute a mapping between clusters an
+    classes labels before comparison.
 
     This function employs a simple idea. It's supposed that the cluster
     corresponding to a given class must have mean closer to the class mean,
     where cluster/class mean is the mean of the elements in the cluster/class.
     Based on this assumption, the clusters are mapped to the "corresponding"
-    class. The notion of "closer" is formalized using a distance function (in
+    classes. The notion of "closer" is formalized using a distance function (in
     this case, the Euclidean).
     """
 
@@ -66,7 +69,7 @@ def map_clusters_to_classes_lbls(clusters_lbls, classes_data, classes_lbls):
     return new_clusters_lbls
 
 def clustering_hit_rate(clusters_lbls, classes_lbls):
-    """Evaluates the performance of a clustering (overall/per cluster hit rate)
+    """Evaluates the performance of a clustering (overall/per cluster hit rate).
 
     It's assumed there's a correspondance between clusters and classes labels.
     """
