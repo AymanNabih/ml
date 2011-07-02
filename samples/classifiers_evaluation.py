@@ -11,8 +11,8 @@ using stratified k-fold:
     - GDA wihout pooled sigma
     - GDA with pooled sigma
     - KDE with h=0.1 and normal kernel
-    - KNN with k=1, cityblock distance metric
-    - Weighted-KNN with k=1, cityblock distance metric
+    - KNN with k=1 and cityblock distance metric
+    - Weighted-KNN with k=1 and cityblock distance metric
 """
 
 import numpy as np
