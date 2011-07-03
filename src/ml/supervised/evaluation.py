@@ -26,6 +26,11 @@ def stratified_k_fold(labels, k):
     out : iterator
         An iterator providing *test* data masks for each fold.
 
+    Raises
+    ------
+    ValueError
+        If k > cardinality of the less frequent class.
+
     Examples
     --------
 
