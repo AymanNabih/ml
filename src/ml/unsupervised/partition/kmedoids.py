@@ -33,6 +33,11 @@ def partitioning_around_medoids(k, distances):
     cost : 1D-array
         The cost associated with each cluster.
 
+    Raises
+    ------
+    ValueError
+        If an empty cluster is created.
+
     References
     ----------
     .. [Theodoridis2009] S. Theodoridis, K. Koutroumbas; Pattern Recognition;
@@ -57,5 +62,7 @@ def partitioning_around_medoids(k, distances):
         labels = new_labels
         medoids_idx = [distances[labels==i, :].sum(axis=0).argmin() \
             for i in xrange(k)]
+        if len(np.unique(medoids_idx)) != k:
+            raise ValueError("Empty cluster created.")
     cost = [distances[labels==i, medoids_idx[i]].sum() for i in xrange(k)]
     return labels, medoids_idx, cost
