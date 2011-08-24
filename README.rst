@@ -16,9 +16,9 @@ Send me a pull request or a patch and i'll be very happy to review it.
 
 That's it =).
 
-Rafael Menezes Barreto (rafaelbarreto87@gmail.com)
+Rafael Menezes Barreto (contact@rafaelbarreto.com)
 
-http://rafaelbarreto.wordpress.com
+http://rafaelbarreto.com/
 
 Features
 --------
