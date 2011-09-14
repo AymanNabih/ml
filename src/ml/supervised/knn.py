@@ -12,7 +12,7 @@ from scipy.spatial.distance import cdist
 
 
 def knn_classifier_gen(data, labels, k=1, weighted=False,
-                       dist_metric='euclidean', thresh=np.inf, **dist_kwargs):
+                       dist_metric="euclidean", thresh=np.inf, **dist_kwargs):
     assert k > 0, "'k' must be greater than 0."
 
     data = np.copy(data)
